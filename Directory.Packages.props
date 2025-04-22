@@ -1,0 +1,18 @@
+<Project>
+    <PropertyGroup Label="Common">
+        <Product>Quick</Product>
+        <Copyright>Copyright (c) 2025</Copyright>
+        <Authors>GabrielRego1</Authors>
+        <TargetFramework>net9.0</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <!--OpenApi-->
+        <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="9.0.4"/>
+        <PackageVersion Include="Scalar.AspNetCore" Version="2.1.17"/>
+    </ItemGroup>
+</Project>
