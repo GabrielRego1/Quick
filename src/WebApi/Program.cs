@@ -1,14 +1,11 @@
-using Scalar.AspNetCore;
+using WebApi.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOpenApi();
-
+builder.ConfigureSerilog();
 
 var app = builder.Build();
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-    app.MapScalarApiReference();
-}
+app.MapApplicationEndpoints();
+app.UseScalar();
 app.UseHttpsRedirection();
 await app.RunAsync();

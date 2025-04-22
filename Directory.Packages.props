@@ -5,7 +5,7 @@
         <Authors>GabrielRego1</Authors>
         <TargetFramework>net9.0</TargetFramework>
         <LangVersion>latest</LangVersion>
-        <Nullable>enable</Nullable>
+        <Nullable>disable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     </PropertyGroup>
@@ -14,5 +14,10 @@
         <!--OpenApi-->
         <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="9.0.4"/>
         <PackageVersion Include="Scalar.AspNetCore" Version="2.1.17"/>
+
+        <!--Logging-->
+        <PackageVersion Include="Serilog" Version="4.2.0"/>
+        <PackageVersion Include="Serilog.AspNetCore" Version="9.0.0"/>
+        <PackageVersion Include="Serilog.Formatting.Elasticsearch" Version="9.0.3"/>
     </ItemGroup>
 </Project>
