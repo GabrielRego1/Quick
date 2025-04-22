@@ -1,8 +1,11 @@
 using WebApi.Extensions;
+using Infrastructure.Messaging.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddOpenApi();
 builder.ConfigureSerilog();
+
+builder.Services.AddOpenApi()
+    .AddMessageBus();
 
 var app = builder.Build();
 app.MapApplicationEndpoints();

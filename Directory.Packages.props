@@ -2,7 +2,7 @@
     <PropertyGroup Label="Common">
         <Product>Quick</Product>
         <Copyright>Copyright (c) 2025</Copyright>
-        <Authors>GabrielRego1</Authors>
+        <Authors>github.com/GabrielRego1</Authors>
         <TargetFramework>net9.0</TargetFramework>
         <LangVersion>latest</LangVersion>
         <Nullable>disable</Nullable>

@@ -20,7 +20,7 @@ public static class ServiceCollectionExtensions
                 bus.UsingRabbitMq((context, cfg) =>
                 {
                     var options = context.GetOptionsCurrentValue<MessageBusOptions>();
-                    cfg.Host(options.ConnectionString, "Quick");
+                    cfg.Host(options.ConnectionString);
                 });
                 bus.AddConsumers(Assembly.GetExecutingAssembly());
                 bus.SetKebabCaseEndpointNameFormatter();

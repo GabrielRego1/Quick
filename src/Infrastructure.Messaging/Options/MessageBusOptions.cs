@@ -2,6 +2,6 @@
 
 public class MessageBusOptions
 {
-    public const string ConfigurationPath = "MessageBusOptions";
+    public const string ConfigurationPath = "MessageBus";
     public required Uri ConnectionString { get; set; }
 }
