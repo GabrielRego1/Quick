@@ -2,5 +2,5 @@
 
 public class Trade
 {
-    public string Ticker { get; private set; }
+    public string Ticker { get; set; }
 }

@@ -2,7 +2,7 @@
 
 namespace Infrastructure.Messaging;
 
-public class MessageBusProducer : IMessageBusProducer
+internal class MessageBusProducer : IMessageBusProducer
 {
     public Task Publish<T>(T message, CancellationToken cancellationToken) where T : class
     {

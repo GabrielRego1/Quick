@@ -2,6 +2,7 @@ using WebApi.Extensions;
 using Infrastructure.Messaging.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
+
 builder.ConfigureSerilog();
 
 builder.Services.AddOpenApi()

@@ -2,7 +2,7 @@
   "profiles": {
     "Quick": {
       "commandName": "Project",
-      "launchBrowser": true,
+      "launchBrowser": false,
       "launchUrl": "scalar",
       "applicationUrl": "https://localhost:5000",
       "environmentVariables": {

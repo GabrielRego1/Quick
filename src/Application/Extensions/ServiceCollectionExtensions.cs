@@ -6,7 +6,7 @@ public static class ServiceCollectionExtensions
 {
     public static IServiceCollection ConfigureOptions<T>(this IServiceCollection services, string configureOptions)
         where T : class
-        => services.AddOptions<T>(configureOptions)
+        => services.AddOptions<T>()
             .BindConfiguration(configureOptions)
             .ValidateDataAnnotations()
             .ValidateOnStart()

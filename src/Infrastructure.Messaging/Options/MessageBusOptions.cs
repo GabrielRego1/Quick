@@ -3,5 +3,5 @@
 public class MessageBusOptions
 {
     public const string ConfigurationPath = "MessageBus";
-    public required Uri ConnectionString { get; set; }
+    public required Uri ConnectionString { get; init; } = default!;
 }

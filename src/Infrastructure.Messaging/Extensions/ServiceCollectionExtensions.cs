@@ -6,14 +6,14 @@ using Infrastructure.Messaging.Publishers;
 using Microsoft.Extensions.DependencyInjection;
 using Application.Extensions;
 using MassTransit;
+using Microsoft.Extensions.Configuration;
 
 namespace Infrastructure.Messaging.Extensions;
 
 public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddMessageBus(this IServiceCollection services)
-    {
-        services.AddPublishers()
+        => services.AddPublishers()
             .ConfigureOptions<MessageBusOptions>(MessageBusOptions.ConfigurationPath)
             .AddMassTransit(bus =>
             {
@@ -25,8 +25,7 @@ public static class ServiceCollectionExtensions
                 bus.AddConsumers(Assembly.GetExecutingAssembly());
                 bus.SetKebabCaseEndpointNameFormatter();
             });
-        return services;
-    }
+
 
     private static IServiceCollection AddPublishers(this IServiceCollection services)
         => services.AddTransient<IMessageBusProducer, MessageBusProducer>()
