@@ -1,4 +1,4 @@
-﻿namespace WebApi.Extensions.Endpoints;
+﻿namespace WebApi.Endpoints;
 
 internal static class SupportApi
 {

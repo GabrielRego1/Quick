@@ -1,5 +1,6 @@
 using Application.IoC;
 using Infrastructure.Messaging.IoC;
+using WebApi.Endpoints;
 using WebApi.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);

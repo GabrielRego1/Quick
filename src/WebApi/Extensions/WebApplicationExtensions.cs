@@ -1,5 +1,5 @@
 ﻿using Scalar.AspNetCore;
-using WebApi.Extensions.Endpoints;
+using WebApi.Endpoints;
 
 namespace WebApi.Extensions;
 
@@ -11,8 +11,4 @@ internal static class WebApplicationExtensions
         app.MapScalarApiReference();
         return app;
     }
-
-    internal static WebApplication MapApplicationEndpoints(this WebApplication app)
-        => app.MapSupportApi()
-            .MapTradeApi();
 }

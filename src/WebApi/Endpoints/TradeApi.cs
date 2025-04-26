@@ -1,7 +1,7 @@
 ﻿using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebApi.Extensions.Endpoints;
+namespace WebApi.Endpoints;
 
 internal static class TradeApi
 {
