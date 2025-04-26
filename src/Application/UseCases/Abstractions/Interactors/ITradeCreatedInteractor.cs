@@ -1,6 +1,6 @@
 ﻿using Application.Abstractions.Interactors;
 using Application.Messages.Events;
 
-namespace Application.UseCases.Trade.Interactors.Abstractions;
+namespace Application.UseCases.Abstractions.Interactors;
 
 public interface ITradeCreatedInteractor : IInteractor<TradeCreatedEvent>;

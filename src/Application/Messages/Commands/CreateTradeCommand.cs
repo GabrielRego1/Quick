@@ -1,3 +1,3 @@
 ﻿namespace Application.Messages.Commands;
 
-public record CreateTradeCommand: IMessage;
+public record CreateTradeCommand(string Ticker, string Account, decimal Price, decimal Quantity) : IMessage;

@@ -1,4 +1,6 @@
-﻿using Domain.Entities;
+﻿using Application.Messages.Commands;
+using Application.UseCases.Abstractions;
+using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Endpoints;
@@ -11,11 +13,13 @@ internal static class TradeApi
     {
         var group = app.MapGroup("/trade").WithTags(DefaultTags);
 
-        group.MapPost("/", ([FromBody] Trade trade, [FromServices] ILogger<Trade> logger) =>
-        {
-            logger.LogInformation("Received trade request for ticker: {Ticker}", trade.Ticker);
-            return Results.Ok(new { Id = Guid.NewGuid(), Ticker = trade.Ticker, Status = "Created" });
-        });
+        group.MapPost("/",
+            ([FromBody] CreateTradeCommand command, [FromServices] ICreateTradeUseCase useCase) =>
+            {
+                //ToDo: Repensar a forma de passar o CancellationToken
+                //Todo: Melhorar o tratamento/retorno de erros de um caso de uso
+                useCase.ExecuteAsync(command, CancellationToken.None);
+            });
 
         return app;
     }

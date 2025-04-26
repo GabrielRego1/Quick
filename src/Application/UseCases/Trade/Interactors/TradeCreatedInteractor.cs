@@ -1,5 +1,5 @@
 ﻿using Application.Messages.Events;
-using Application.UseCases.Trade.Interactors.Abstractions;
+using Application.UseCases.Abstractions.Interactors;
 
 namespace Application.UseCases.Trade.Interactors;
 
