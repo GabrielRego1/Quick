@@ -12,7 +12,8 @@ builder.Services.AddOpenApi()
     .AddMessageBus();
 
 var app = builder.Build();
-app.MapApplicationEndpoints();
-app.UseScalar();
-app.UseHttpsRedirection();
+app.MapApplicationEndpoints()
+    .UseScalar()
+    .UseHttpsRedirection();
+
 await app.RunAsync();
