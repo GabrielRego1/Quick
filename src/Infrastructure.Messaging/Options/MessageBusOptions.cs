@@ -1,7 +1,7 @@
 ﻿namespace Infrastructure.Messaging.Options;
 
-internal class MessageBusOptions
+public class MessageBusOptions
 {
-    internal const string ConfigurationPath = "MessageBus";
-    internal required Uri ConnectionString { get; init; } = default!;
+    public const string ConfigurationPath = "MessageBus";
+    public required Uri ConnectionString { get; init; }
 }

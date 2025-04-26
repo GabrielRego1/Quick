@@ -20,6 +20,7 @@ public static class DependencyInjection
                 {
                     var options = context.GetOptionsCurrentValue<MessageBusOptions>();
                     cfg.Host(options.ConnectionString);
+                    cfg.ConfigureEndpoints(context);
                 });
                 bus.AddConsumers(Assembly.GetExecutingAssembly());
                 bus.SetKebabCaseEndpointNameFormatter();
