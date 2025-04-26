@@ -1,6 +1,5 @@
 ﻿using Application.Messages.Commands;
 using Application.UseCases.Abstractions;
-using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Endpoints;

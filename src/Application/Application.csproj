@@ -1,5 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <ItemGroup>
-        <ProjectReference Include="..\Domain\Domain.csproj" />
+        <!--Resilience-->
+        <PackageReference Include="Microsoft.Extensions.Http.Resilience"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Domain\Domain.csproj"/>
     </ItemGroup>
 </Project>

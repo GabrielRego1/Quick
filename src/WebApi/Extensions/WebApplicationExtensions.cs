@@ -1,5 +1,4 @@
 ﻿using Scalar.AspNetCore;
-using WebApi.Endpoints;
 
 namespace WebApi.Extensions;
 

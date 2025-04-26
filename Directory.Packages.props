@@ -28,5 +28,8 @@
         <!--Messaging-->
         <PackageVersion Include="MassTransit" Version="8.4.0"/>
         <PackageVersion Include="MassTransit.RabbitMQ" Version="8.4.0"/>
+
+        <!--Resilience-->
+        <PackageVersion Include="Microsoft.Extensions.Http.Resilience" Version="9.4.0"/>
     </ItemGroup>
 </Project>
