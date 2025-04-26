@@ -4,8 +4,8 @@ using Application.Messages.Commands;
 
 namespace Infrastructure.Messaging.Publishers;
 
-public class TradePublisher(IMessageBusProducer producer) : ITradePublisher
+public class PaymentPublisher(IMessageBusProducer producer) : IPaymentPublisher
 {
-    public Task PublishAsync(CreateTradeCommand command, CancellationToken cancellationToken)
+    public Task PublishAsync(CreatePaymentCommand command, CancellationToken cancellationToken)
         => producer.Publish(command, cancellationToken);
 }

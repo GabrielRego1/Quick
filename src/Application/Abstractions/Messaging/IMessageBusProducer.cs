@@ -1,6 +1,8 @@
-﻿namespace Application.Abstractions.Messaging;
+﻿using Application.Messages;
+
+namespace Application.Abstractions.Messaging;
 
 public interface IMessageBusProducer
 {
-    Task Publish<T>(T message, CancellationToken cancellationToken) where T : class;
+    Task Publish<T>(T message, CancellationToken cancellationToken) where T : IMessage;
 }

@@ -1,9 +1,8 @@
-﻿using Domain.Entities;
+﻿using Application.Messages.Commands;
 
 namespace Application.Abstractions.Messaging.Publishers;
 
 public interface ITradePublisher
 {
-    //ToDo: Change TYPE Trade to Command
-    Task PublishAsync(Trade trade, CancellationToken cancellationToken);
+    Task PublishAsync(CreateTradeCommand command, CancellationToken cancellationToken);
 }

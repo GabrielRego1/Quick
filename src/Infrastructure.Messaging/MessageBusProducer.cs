@@ -1,11 +1,11 @@
 ﻿using Application.Abstractions.Messaging;
+using Application.Messages;
+using MassTransit;
 
 namespace Infrastructure.Messaging;
 
-internal class MessageBusProducer : IMessageBusProducer
+internal class MessageBusProducer(IPublishEndpoint publishEndpoint) : IMessageBusProducer
 {
-    public Task Publish<T>(T message, CancellationToken cancellationToken) where T : class
-    {
-        throw new NotImplementedException();
-    }
+    public Task Publish<T>(T message, CancellationToken cancellationToken) where T : IMessage
+        => publishEndpoint.Publish(message, cancellationToken);
 }
