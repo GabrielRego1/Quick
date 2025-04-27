@@ -1,9 +1,11 @@
-﻿using Application.Messages.Events;
-using Application.UseCases.Abstractions.Interactors;
+﻿using Application.Abstractions.Interactors;
+using Application.Messages.Events;
 
 namespace Application.UseCases.Payment.Interactors;
 
-public class PaymentCreatedInteractor:IPaymentCreatedInteractor
+public interface IPaymentCreatedInteractor : IInteractor<PaymentCreatedEvent>;
+
+public class PaymentCreatedInteractor : IPaymentCreatedInteractor
 {
     public Task InteractAsync(PaymentCreatedEvent command, CancellationToken cancellationToken)
     {

@@ -5,6 +5,8 @@ using Microsoft.Extensions.Logging;
 
 namespace Application.UseCases.Trade.Adapters;
 
+public interface ICreateTradeHttpClientAdapter : ICreateTradeAdapter;
+
 public class CreateTradeHttpClientAdapter(IHttpService httpService, ILogger<CreateTradeHttpClientAdapter> logger)
     : ICreateTradeHttpClientAdapter
 {

@@ -4,7 +4,6 @@ using Application.Extensions;
 using Application.Options;
 using Application.Services.Http;
 using Application.UseCases.Abstractions;
-using Application.UseCases.Abstractions.Interactors;
 using Application.UseCases.Payment.Interactors;
 using Application.UseCases.Trade;
 using Application.UseCases.Trade.Adapters;

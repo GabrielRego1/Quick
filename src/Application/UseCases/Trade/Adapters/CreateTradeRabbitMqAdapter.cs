@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Application.UseCases.Trade.Adapters;
 
+public interface ICreateTradeRabbitMqAdapter : ICreateTradeAdapter;
 public class CreateTradeRabbitMqAdapter(ITradePublisher publisher, ILogger<CreateTradeRabbitMqAdapter> logger)
     : ICreateTradeRabbitMqAdapter
 {
