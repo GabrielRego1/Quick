@@ -10,7 +10,11 @@ public class CreateTradeUseCase(ILogger<CreateTradeUseCase> logger, ICreateTrade
     public async Task ExecuteAsync(CreateTradeCommand command, CancellationToken cancellationToken)
     {
         logger.LogInformation("Executing {UseCase} with command: {Command}", nameof(CreateTradeUseCase), command);
+        
+        
+        //ToDo: Check Asset is valid
+        //ToDo: Update SettlemenmtAccount
 
-        await adapter.ExecuteAsync(command, cancellationToken);
+        await adapter.CreateTrade(command, cancellationToken);
     }
 }

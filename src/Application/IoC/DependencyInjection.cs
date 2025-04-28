@@ -20,6 +20,9 @@ public static class DependencyInjection
             .AddHttpServices()
             .AddAdapters();
 
+    private static IServiceCollection AddUseCases(this IServiceCollection services)
+        => services.AddScoped<ICreateTradeUseCase, CreateTradeUseCase>();
+
     private static IServiceCollection AddHttpServices(this IServiceCollection services)
         => services.AddHttpClient<IHttpService, HttpService>()
             .AddStandardResilienceHandler()
@@ -28,9 +31,6 @@ public static class DependencyInjection
     private static IServiceCollection AddInteractors(this IServiceCollection services)
         => services.AddScoped<ITradeCreatedInteractor, TradeCreatedInteractor>()
             .AddScoped<IPaymentCreatedInteractor, PaymentCreatedInteractor>();
-
-    private static IServiceCollection AddUseCases(this IServiceCollection services)
-        => services.AddScoped<ICreateTradeUseCase, CreateTradeUseCase>();
 
     private static IServiceCollection AddAdapters(this IServiceCollection services)
         => services.AddTradeCreateAdapters();

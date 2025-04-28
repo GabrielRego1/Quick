@@ -4,5 +4,5 @@ namespace Application.Abstractions.Adapters;
 
 public interface ICreateTradeAdapter
 {
-    Task ExecuteAsync(CreateTradeCommand command, CancellationToken cancellationToken);
+    Task CreateTrade(CreateTradeCommand command, CancellationToken cancellationToken);
 }

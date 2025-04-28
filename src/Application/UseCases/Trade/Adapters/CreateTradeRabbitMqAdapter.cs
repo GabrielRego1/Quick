@@ -9,7 +9,7 @@ public interface ICreateTradeRabbitMqAdapter : ICreateTradeAdapter;
 public class CreateTradeRabbitMqAdapter(ITradePublisher publisher, ILogger<CreateTradeRabbitMqAdapter> logger)
     : ICreateTradeRabbitMqAdapter
 {
-    public async Task ExecuteAsync(CreateTradeCommand command, CancellationToken cancellationToken)
+    public async Task CreateTrade(CreateTradeCommand command, CancellationToken cancellationToken)
     {
         logger.LogInformation("Starting publishing command {Command} to RabbitMQ", nameof(command));
         await publisher.PublishAsync(command, cancellationToken);

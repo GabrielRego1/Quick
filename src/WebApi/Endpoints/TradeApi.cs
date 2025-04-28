@@ -12,13 +12,13 @@ internal static class TradeApi
     {
         var group = app.MapGroup("/trade").WithTags(DefaultTags);
 
-        group.MapPost("/",
+        group.MapPost("/", async
             ([FromBody] CreateTradeCommand command, [FromServices] ICreateTradeUseCase useCase) =>
-            {
-                //ToDo: Repensar a forma de passar o CancellationToken
-                //Todo: Melhorar o tratamento/retorno de erros de um caso de uso
-                useCase.ExecuteAsync(command, CancellationToken.None);
-            });
+        {
+            //ToDo: Repensar a forma de passar o CancellationToken
+            //Todo: Melhorar o tratamento/retorno de erros de um caso de uso
+            await useCase.ExecuteAsync(command, CancellationToken.None);
+        });
 
         return app;
     }

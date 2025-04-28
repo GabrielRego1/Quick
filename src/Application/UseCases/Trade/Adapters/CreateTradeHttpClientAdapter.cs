@@ -10,7 +10,7 @@ public interface ICreateTradeHttpClientAdapter : ICreateTradeAdapter;
 public class CreateTradeHttpClientAdapter(IHttpService httpService, ILogger<CreateTradeHttpClientAdapter> logger)
     : ICreateTradeHttpClientAdapter
 {
-    public async Task ExecuteAsync(CreateTradeCommand command, CancellationToken cancellationToken)
+    public async Task CreateTrade(CreateTradeCommand command, CancellationToken cancellationToken)
     {
         logger.LogInformation("Starting sending HTTP POST request {Command} to WebAPI", nameof(command));
         var response = await httpService.PostAsJsonAsync("/api/trade", command, cancellationToken);
