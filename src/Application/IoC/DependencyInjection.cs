@@ -44,8 +44,8 @@ public static class DependencyInjection
                 var options = provider.GetOptionsCurrentValue<CreateTradeAdapterOptions>();
                 return options.AdapterType switch
                 {
-                    "HttpClient" => provider.GetRequiredService<CreateTradeHttpClientAdapter>(),
-                    "RabbitMq" => provider.GetRequiredService<CreateTradeRabbitMqAdapter>(),
+                    "HttpClient" => provider.GetRequiredService<ICreateTradeHttpClientAdapter>(),
+                    "RabbitMq" => provider.GetRequiredService<ICreateTradeRabbitMqAdapter>(),
                     _ => throw new InvalidOperationException("Invalid adapter type configured.")
                 };
             });
