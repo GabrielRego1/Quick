@@ -10,6 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		README.md = README.md
 		Directory.Packages.props = Directory.Packages.props
 		docker-compose.yml = docker-compose.yml
+		nuget.config = nuget.config
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "src\WebApi\WebApi.csproj", "{49EA2ED6-0E75-42F1-A0A0-3859D55700A0}"
