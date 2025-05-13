@@ -12,6 +12,18 @@ services:
     networks:
       - internal
 
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    ports:
+      - "1433:1433"
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "PasswordLocalhost"
+    volumes:
+      - mssql-data:/var/opt/mssql
+    networks:
+      - internal
+      
 networks:
   internal:
     driver: bridge
