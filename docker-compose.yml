@@ -23,7 +23,10 @@ services:
       - mssql-data:/var/opt/mssql
     networks:
       - internal
-      
+
 networks:
   internal:
     driver: bridge
+
+volumes:
+  mssql-data: {}
