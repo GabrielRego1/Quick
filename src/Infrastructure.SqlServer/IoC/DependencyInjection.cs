@@ -11,7 +11,7 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddSqlServer(this IServiceCollection services, IConfiguration configuration)
         => services.AddDbContext<QuickDbContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("QuickConnection")))
+                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")))
             .AddRepositories();
 
     private static IServiceCollection AddRepositories(this IServiceCollection services)
