@@ -1,3 +1,5 @@
-﻿namespace Application.Messages.Commands;
+﻿using Domain.Enums;
 
-public record CreateTradeCommand(string Ticker, string Account, decimal Price, decimal Quantity) : IMessage;
+namespace Application.Messages.Commands;
+
+public record CreateTradeCommand(string Ticker, string Account, decimal Price, decimal Quantity, DateOnly TradeDate, Side Side);

@@ -1,8 +1,8 @@
-﻿using Application.Messages.Commands;
+﻿using Domain.Entities;
 
 namespace Application.Abstractions.Adapters;
 
 public interface ICreateTradeAdapter
 {
-    Task CreateTrade(CreateTradeCommand command, CancellationToken cancellationToken);
+    Task CreateTrade(Trade trade, CancellationToken cancellationToken);
 }

@@ -1,5 +1,5 @@
 ﻿using Application.Messages.Events;
-using Application.UseCases.Trade.Interactors;
+using Application.UseCases.Trades.Interactors;
 using MassTransit;
 
 namespace Infrastructure.Messaging.Consumers;

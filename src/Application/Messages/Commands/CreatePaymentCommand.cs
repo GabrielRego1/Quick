@@ -1,3 +1,3 @@
 ﻿namespace Application.Messages.Commands;
 
-public record CreatePaymentCommand : IMessage;
+public record CreatePaymentCommand(string Account, decimal Price, DateOnly PaymentDate);

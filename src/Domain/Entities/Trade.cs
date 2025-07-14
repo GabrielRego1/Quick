@@ -2,27 +2,22 @@
 
 namespace Domain.Entities;
 
-public class Trade
+public class Trade(
+    string ticker,
+    string account,
+    Side side,
+    decimal quantity,
+    decimal price,
+    DateOnly tradeDate)
 {
-    public string Ticker { get; private set; }
-    public string Account { get; private set; }
+    public string Ticker { get; private set; } = ticker;
+    public string Account { get; private set; } = account;
     public string SettlmentAccount { get; private set; }
-    public Side Side { get; private set; }
-    public decimal Quantity { get; private set; }
-    public decimal Price { get; private set; }
-    public DateOnly TradeDate { get; private set; }
-
-    public Trade(string ticker, string account, string settlmentAccount, Side side, decimal quantity, decimal price,
-        DateOnly tradeDate)
-    {
-        Ticker = ticker;
-        Account = account;
-        SettlmentAccount = settlmentAccount;
-        Side = side;
-        Quantity = quantity;
-        Price = price;
-        TradeDate = tradeDate;
-    }
+    public Side Side { get; private set; } = side;
+    public decimal Quantity { get; private set; } = quantity;
+    public decimal Price { get; private set; } = price;
+    public DateOnly TradeDate { get; private set; } = tradeDate;
+    public TradeStatuses TradeStatus { get; private set; }
 
     public void UpdateSettlmentAccount(string settlmentAccount)
     {
@@ -31,4 +26,7 @@ public class Trade
 
         SettlmentAccount = settlmentAccount;
     }
+
+    public void SetStatusForSentToCreate()
+        => TradeStatus = TradeStatuses.SentToCreate;
 }

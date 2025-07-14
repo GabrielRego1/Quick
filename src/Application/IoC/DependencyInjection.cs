@@ -4,10 +4,10 @@ using Application.Extensions;
 using Application.Options;
 using Application.Services.Http;
 using Application.UseCases.Abstractions;
-using Application.UseCases.Payment.Interactors;
-using Application.UseCases.Trade;
-using Application.UseCases.Trade.Adapters;
-using Application.UseCases.Trade.Interactors;
+using Application.UseCases.Payments.Interactors;
+using Application.UseCases.Trades;
+using Application.UseCases.Trades.Adapters;
+using Application.UseCases.Trades.Interactors;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Application.IoC;

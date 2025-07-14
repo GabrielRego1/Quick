@@ -1,7 +1,7 @@
 ﻿using Application.Abstractions.Interactors;
 using Application.Messages.Events;
 
-namespace Application.UseCases.Payment.Interactors;
+namespace Application.UseCases.Payments.Interactors;
 
 public interface IPaymentCreatedInteractor : IInteractor<PaymentCreatedEvent>;
 

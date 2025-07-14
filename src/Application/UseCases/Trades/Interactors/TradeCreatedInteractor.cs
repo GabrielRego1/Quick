@@ -1,7 +1,7 @@
 ﻿using Application.Abstractions.Interactors;
 using Application.Messages.Events;
 
-namespace Application.UseCases.Trade.Interactors;
+namespace Application.UseCases.Trades.Interactors;
 
 public interface ITradeCreatedInteractor : IInteractor<TradeCreatedEvent>;
 

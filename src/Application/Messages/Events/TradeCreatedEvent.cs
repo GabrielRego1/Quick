@@ -1,3 +1,3 @@
 ﻿namespace Application.Messages.Events;
 
-public record TradeCreatedEvent : IMessage;
+public record TradeCreatedEvent;

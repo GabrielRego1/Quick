@@ -1,8 +1,8 @@
-﻿using Application.Messages.Commands;
+﻿using Domain.Entities;
 
 namespace Application.Abstractions.Messaging.Publishers;
 
 public interface ITradePublisher
 {
-    Task PublishAsync(CreateTradeCommand command, CancellationToken cancellationToken);
+    Task PublishAsync(Trade trade, CancellationToken cancellationToken);
 }
