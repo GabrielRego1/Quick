@@ -8,9 +8,12 @@ using Application.UseCases.Payments.Interactors;
 using Application.UseCases.Trades;
 using Application.UseCases.Trades.Adapters;
 using Application.UseCases.Trades.Interactors;
+using Application.Validations;
+using Application.Validations.Commands;
+using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Application.IoC;
+namespace Application;
 
 public static class DependencyInjection
 {
@@ -19,7 +22,8 @@ public static class DependencyInjection
             .AddUseCases()
             .AddHttpServices()
             .AddOptions()
-            .AddAdapters();
+            .AddAdapters()
+            .AddValidators();
 
     private static IServiceCollection AddUseCases(this IServiceCollection services)
         => services.AddScoped<ICreateTradeUseCase, CreateTradeUseCase>();
@@ -53,4 +57,8 @@ public static class DependencyInjection
                     _ => throw new InvalidOperationException("Invalid adapter type configured.")
                 };
             });
+
+    private static IServiceCollection AddValidators(this IServiceCollection services)
+        => services.AddScoped(typeof(Validator<>))
+            .AddValidatorsFromAssemblyContaining<CreateTradeCommandValidator>();
 }

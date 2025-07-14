@@ -1,8 +1,8 @@
-using Application.IoC;
-using Infrastructure.Messaging.IoC;
+using Application;
+using Infrastructure.Messaging;
+using Infrastructure.SqlServer;
 using WebApi.Endpoints;
 using WebApi.Extensions;
-using Infrastructure.SqlServer.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Infrastructure.SqlServer.IoC;
+namespace Infrastructure.SqlServer;
 
 public static class DependencyInjection
 {

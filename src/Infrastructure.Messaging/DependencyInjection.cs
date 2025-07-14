@@ -7,7 +7,7 @@ using Infrastructure.Messaging.Publishers;
 using MassTransit;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Infrastructure.Messaging.IoC;
+namespace Infrastructure.Messaging;
 
 public static class DependencyInjection
 {
