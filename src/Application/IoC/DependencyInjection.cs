@@ -18,6 +18,7 @@ public static class DependencyInjection
         => services.AddInteractors()
             .AddUseCases()
             .AddHttpServices()
+            .AddOptions()
             .AddAdapters();
 
     private static IServiceCollection AddUseCases(this IServiceCollection services)
@@ -35,9 +36,12 @@ public static class DependencyInjection
     private static IServiceCollection AddAdapters(this IServiceCollection services)
         => services.AddTradeCreateAdapters();
 
-    private static IServiceCollection AddTradeCreateAdapters(this IServiceCollection services)
+    private static IServiceCollection AddOptions(this IServiceCollection services)
         => services.ConfigureOptions<CreateTradeAdapterOptions>(CreateTradeAdapterOptions.ConfigurationPath)
-            .AddScoped<ICreateTradeHttpClientAdapter, CreateTradeHttpClientAdapter>()
+            .ConfigureOptions<SettlementOptions>(SettlementOptions.ConfigurationPath);
+
+    private static IServiceCollection AddTradeCreateAdapters(this IServiceCollection services)
+        => services.AddScoped<ICreateTradeHttpClientAdapter, CreateTradeHttpClientAdapter>()
             .AddScoped<ICreateTradeRabbitMqAdapter, CreateTradeRabbitMqAdapter>()
             .AddScoped<ICreateTradeAdapter>(provider =>
             {

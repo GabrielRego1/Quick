@@ -1,6 +1,7 @@
 ﻿using Application.Abstractions.Adapters;
 using Application.Abstractions.Repositories;
 using Application.Messages.Commands;
+using Application.Options;
 using Application.UseCases.Abstractions;
 using Domain.Entities;
 using Microsoft.Extensions.Logging;
@@ -10,7 +11,8 @@ namespace Application.UseCases.Trades;
 public class CreateTradeUseCase(
     ILogger<CreateTradeUseCase> logger,
     ICreateTradeAdapter adapter,
-    ITradeRepository tradeRepository) : ICreateTradeUseCase
+    ITradeRepository tradeRepository,
+    SettlementOptions settlementOptions) : ICreateTradeUseCase
 {
     public async Task ExecuteAsync(CreateTradeCommand command, CancellationToken cancellationToken)
     {
@@ -24,7 +26,7 @@ public class CreateTradeUseCase(
 
         var trade = new Trade(command.Ticker, command.Account, command.Side, command.Quantity, command.Price, command.TradeDate);
 
-        trade.UpdateSettlmentAccount("SETTLEMENT_ACCOUNT");
+        trade.UpdateSettlmentAccount(settlementOptions.Account);
 
         await adapter.CreateTrade(trade, cancellationToken);
 
