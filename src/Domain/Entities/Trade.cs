@@ -1,32 +1,40 @@
-﻿using Domain.Enums;
+﻿using Domain.Abstractions;
+using Domain.Aggregates;
+using Domain.Enums;
+using Domain.ValueObjects;
 
 namespace Domain.Entities;
 
-public class Trade(
-    string ticker,
-    string account,
-    Side side,
-    decimal quantity,
-    decimal price,
-    DateOnly tradeDate)
+public class Trade : IAggregateRoot
 {
-    public string Ticker { get; private set; } = ticker;
-    public string Account { get; private set; } = account;
-    public string SettlementAccount { get; private set; }
-    public Side Side { get; private set; } = side;
-    public decimal Quantity { get; private set; } = quantity;
-    public decimal Price { get; private set; } = price;
-    public DateOnly TradeDate { get; private set; } = tradeDate;
+    private Trade()
+    {
+    }
+
+    public Trade Iniciate()
+    {
+        var trade = new Trade();
+        return trade;
+    }
+
+    public Ticker Ticker { get; private set; }
+    public Account Account { get; private set; }
+    public Account SettlementAccount { get; private set; }
+    public Side Side { get; private set; }
+    public Quantity Quantity { get; private set; }
+    public Price Price { get; private set; }
+    public DateOnly TradeDate { get; private set; }
     public TradeStatuses TradeStatus { get; private set; }
 
-    public void UpdateSettlementAccount(string settlementAccount)
-    {
-        if (string.IsNullOrEmpty(settlementAccount))
-            throw new ArgumentException("Invalid settlement account");
-
-        SettlementAccount = settlementAccount;
-    }
 
     public void SetStatusForSentToCreate()
         => TradeStatus = TradeStatuses.SentToCreate;
+
+    public int Version { get; }
+    public IEnumerable<(int version, IMessage message)> UncommittedMessages { get; }
+
+    public void Load(IEnumerable<IMessage> messages)
+    {
+        throw new NotImplementedException();
+    }
 }
