@@ -20,7 +20,7 @@ internal class TradeConfiguration : IEntityTypeConfiguration<Trade>
             .IsRequired()
             .HasMaxLength(50);
 
-        builder.Property(t => t.SettlmentAccount)
+        builder.Property(t => t.SettlementAccount)
             .IsRequired()
             .HasMaxLength(50);
 

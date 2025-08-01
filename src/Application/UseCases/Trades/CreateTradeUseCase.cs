@@ -29,7 +29,7 @@ public class CreateTradeUseCase(
 
         var trade = new Trade(command.Ticker, command.Account, command.Side, command.Quantity, command.Price, command.TradeDate);
 
-        trade.UpdateSettlmentAccount(settlementOptions.Account);
+        trade.UpdateSettlementAccount(settlementOptions.Account);
 
         await adapter.CreateTrade(trade, cancellationToken);
 

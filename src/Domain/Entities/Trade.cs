@@ -12,19 +12,19 @@ public class Trade(
 {
     public string Ticker { get; private set; } = ticker;
     public string Account { get; private set; } = account;
-    public string SettlmentAccount { get; private set; }
+    public string SettlementAccount { get; private set; }
     public Side Side { get; private set; } = side;
     public decimal Quantity { get; private set; } = quantity;
     public decimal Price { get; private set; } = price;
     public DateOnly TradeDate { get; private set; } = tradeDate;
     public TradeStatuses TradeStatus { get; private set; }
 
-    public void UpdateSettlmentAccount(string settlmentAccount)
+    public void UpdateSettlementAccount(string settlementAccount)
     {
-        if (string.IsNullOrEmpty(settlmentAccount))
+        if (string.IsNullOrEmpty(settlementAccount))
             throw new ArgumentException("Invalid settlement account");
 
-        SettlmentAccount = settlmentAccount;
+        SettlementAccount = settlementAccount;
     }
 
     public void SetStatusForSentToCreate()
