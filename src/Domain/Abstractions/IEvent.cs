@@ -1,5 +1,5 @@
 ﻿namespace Domain.Abstractions;
 
-public interface IMessage
+public interface IEvent
 {
 }

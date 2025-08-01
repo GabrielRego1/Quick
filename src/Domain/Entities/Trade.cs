@@ -11,9 +11,19 @@ public class Trade : IAggregateRoot
     {
     }
 
-    public Trade Iniciate()
+    public static Trade Iniciate(Ticker ticker, Account account, Account settlementAccount, Side side, Quantity quantity, Price price, DateOnly tradeDate)
     {
-        var trade = new Trade();
+        var trade = new Trade
+        {
+            Ticker = ticker,
+            Account = account,
+            SettlementAccount = settlementAccount,
+            Side = side,
+            Quantity = quantity,
+            Price = price,
+            TradeDate = tradeDate,
+            TradeStatus = TradeStatuses.Accepted
+        };
         return trade;
     }
 
@@ -31,9 +41,9 @@ public class Trade : IAggregateRoot
         => TradeStatus = TradeStatuses.SentToCreate;
 
     public int Version { get; }
-    public IEnumerable<(int version, IMessage message)> UncommittedMessages { get; }
+    public IEnumerable<(int version, IEvent @event)> uncommittedEvents { get; }
 
-    public void Load(IEnumerable<IMessage> messages)
+    public void Load(IEnumerable<IEvent> messages)
     {
         throw new NotImplementedException();
     }

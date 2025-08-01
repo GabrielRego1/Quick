@@ -5,6 +5,6 @@ namespace Domain.Aggregates;
 public interface IAggregateRoot
 {
     int Version { get; }
-    IEnumerable<(int version, IMessage message)> UncommittedMessages { get; }
-    void Load(IEnumerable<IMessage> messages);
+    IEnumerable<(int version, IEvent @event)> uncommittedEvents { get; }
+    void Load(IEnumerable<IEvent> messages);
 }

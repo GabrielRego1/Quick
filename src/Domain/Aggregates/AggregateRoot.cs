@@ -7,18 +7,18 @@ public abstract class AggregateRoot : IAggregateRoot
 {
     public int Version { get; private set; }
 
-    private readonly List<(int version, IMessage message)> _uncommittedMessages = [];
-    public IEnumerable<(int version, IMessage message)> UncommittedMessages => _uncommittedMessages;
+    private readonly List<(int version, IEvent @event)> _uncommittedEvents = [];
+    public IEnumerable<(int version, IEvent @event)> uncommittedEvents => _uncommittedEvents;
 
-    public void Load(IEnumerable<IMessage> messages)
-        => messages.ForEach(Apply);
+    public void Load(IEnumerable<IEvent> events)
+        => events.ForEach(Apply);
 
-    protected void Raise(IMessage message)
+    protected void Raise(IEvent @event)
     {
-        Apply(message);
+        Apply(@event);
         Version += 1;
-        _uncommittedMessages.Add((Version += 1, message));
+        _uncommittedEvents.Add((Version += 1, @event));
     }
 
-    protected abstract void Apply(IMessage message);
+    protected abstract void Apply(IEvent @event);
 }
