@@ -1,5 +1,5 @@
 ﻿namespace Domain.Enums;
-public enum TradeStatuses
+public enum TradeStatus
 {
     Accepted,
     NotAccepted,
