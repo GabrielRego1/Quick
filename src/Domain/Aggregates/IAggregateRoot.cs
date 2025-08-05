@@ -8,3 +8,10 @@ public interface IAggregateRoot
     IEnumerable<(int version, IEvent @event)> uncommittedEvents { get; }
     void Load(IEnumerable<IEvent> messages);
 }
+
+public interface IAggregateRoot<TId> : IAggregateRoot
+    where TId : IAggregateRoot, new()
+{
+    TId Id { get; }
+    void SetId(TId id);
+}

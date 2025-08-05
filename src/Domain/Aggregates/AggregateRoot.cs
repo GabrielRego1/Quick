@@ -3,12 +3,15 @@ using Domain.Extensions;
 
 namespace Domain.Aggregates;
 
-public abstract class AggregateRoot : IAggregateRoot
+public abstract class AggregateRoot<TId> : IAggregateRoot<TId>
+    where TId : IAggregateRoot, new()
 {
+    public TId Id { get; private set; }
     public int Version { get; private set; }
-
     private readonly List<(int version, IEvent @event)> _uncommittedEvents = [];
     public IEnumerable<(int version, IEvent @event)> uncommittedEvents => _uncommittedEvents;
+
+    public void SetId(TId id) => Id = id;
 
     public void Load(IEnumerable<IEvent> events)
         => events.ForEach(Apply);
