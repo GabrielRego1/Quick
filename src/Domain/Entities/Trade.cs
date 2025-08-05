@@ -12,7 +12,13 @@ public class Trade : AggregateRoot
     {
     }
 
-    public static Trade Iniciate(Ticker ticker, Account account, Account settlementAccount, Side side, Quantity quantity, Price price, DateOnly tradeDate)
+    public static Trade Iniciate(Ticker ticker,
+        Account account,
+        Account settlementAccount,
+        Side side,
+        Quantity quantity,
+        Price price,
+        DateOnly tradeDate)
     {
         var @event = new TradeAccepted
         (

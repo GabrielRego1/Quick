@@ -2,4 +2,4 @@
 
 namespace Application.Messages.Commands;
 
-public record CreateTradeCommand(string Ticker, string Account, decimal Price, decimal Quantity, DateOnly TradeDate, Side Side);
+public record CreateTradeCommand(string Ticker, string Account,string SettlementAccount, decimal Price, decimal Quantity, DateOnly TradeDate, Side Side);
