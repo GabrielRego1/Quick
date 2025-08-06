@@ -19,7 +19,7 @@
     <ItemGroup>
         <ProjectReference Include="..\Application\Application.csproj"/>
         <ProjectReference Include="..\Infrastructure.Messaging\Infrastructure.Messaging.csproj"/>
-        <ProjectReference Include="..\Infrastructure.EventStore\Infrastructure.EventStore.csproj" />
+        <ProjectReference Include="..\Infrastructure.AggregrationStore\Infrastructure.AggregrationStore.csproj" />
     </ItemGroup>
 
     <ItemGroup>
