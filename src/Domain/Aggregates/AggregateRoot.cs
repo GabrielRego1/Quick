@@ -4,7 +4,7 @@ using Domain.Extensions;
 namespace Domain.Aggregates;
 
 public abstract class AggregateRoot<TId> : IAggregateRoot<TId>
-    where TId : IAggregateRoot, new()
+    where TId : IAggregateId, new()
 {
     public TId Id { get; private set; }
     public int Version { get; private set; }

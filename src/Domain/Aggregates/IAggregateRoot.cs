@@ -10,7 +10,7 @@ public interface IAggregateRoot
 }
 
 public interface IAggregateRoot<TId> : IAggregateRoot
-    where TId : IAggregateRoot, new()
+    where TId : IAggregateId, new()
 {
     TId Id { get; }
     void SetId(TId id);

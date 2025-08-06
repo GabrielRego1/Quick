@@ -6,7 +6,7 @@ using Domain.ValueObjects;
 
 namespace Domain.Entities;
 
-public class Trade : AggregateRoot
+public class Trade : AggregateRoot<TradeAggregateId>
 {
     private Trade()
     {
@@ -29,7 +29,7 @@ public class Trade : AggregateRoot
             quantity,
             price,
             tradeDate,
-            Enums.TradeStatus.Accepted
+            TradeStatus.Accepted
         );
         var trade = new Trade();
         trade.Apply(@event);
