@@ -1,6 +1,4 @@
-﻿using Application.Abstractions.Adapters;
-using Application.Abstractions.Repositories;
-using Application.Messages.Commands;
+﻿using Application.Messages.Commands;
 using Application.Options;
 using Application.UseCases.Abstractions;
 using Application.Validations;

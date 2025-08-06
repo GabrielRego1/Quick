@@ -19,7 +19,7 @@
     <ItemGroup>
         <ProjectReference Include="..\Application\Application.csproj"/>
         <ProjectReference Include="..\Infrastructure.Messaging\Infrastructure.Messaging.csproj"/>
-        <ProjectReference Include="..\Infrastructure.SqlServer\Infrastructure.SqlServer.csproj"/>
+        <ProjectReference Include="..\Infrastructure.EventStore\Infrastructure.EventStore.csproj" />
     </ItemGroup>
 
     <ItemGroup>
