@@ -2,5 +2,5 @@
 
 public interface IAggregateId
 {
-    
+    string ParseToString();
 }

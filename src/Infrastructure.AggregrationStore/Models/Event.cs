@@ -1,4 +1,5 @@
 ﻿using Domain.Abstractions;
+using Domain.Aggregates;
 
 namespace Infrastructure.SqlServer.Models;
 
@@ -15,7 +16,6 @@ public record Event(
     public const int AggregateNameMaxLength = 100;
     public const int MessageNameMaxLength = 100;
 
-    public static Event Create(int version, string aggregateId, string aggregateName, string eventName,
-        IEvent data, DateTimeOffset timestamp)
-        => new(0, version, aggregateId, aggregateName, eventName, data, timestamp);
+    public static Event Create(int version, IAggregateId id, IAggregateRoot aggregate, IEvent @event,DateTimeOffset timestamp) 
+        => new(0, version, id.ParseToString(), aggregate.GetType().Name, @event.GetType().Name, @event, timestamp);
 }
