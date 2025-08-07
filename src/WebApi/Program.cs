@@ -1,6 +1,6 @@
 using Application;
+using Infrastructure.AggregrationStore;
 using Infrastructure.Messaging;
-using Infrastructure.SqlServer;
 using WebApi.Endpoints;
 using WebApi.Extensions;
 

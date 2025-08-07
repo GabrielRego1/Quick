@@ -1,10 +1,10 @@
 ﻿using Application.Gateways;
 using Domain.Abstractions;
 using Domain.Aggregates;
-using Infrastructure.SqlServer.Abstractions;
-using Infrastructure.SqlServer.Models;
+using Infrastructure.AggregrationStore.Abstractions;
+using Infrastructure.AggregrationStore.Models;
 
-namespace Infrastructure.SqlServer.Gateways;
+namespace Infrastructure.AggregrationStore.Gateways;
 
 public class AggregrationStoreGateway(IAggregationStoreRepository repository) : IAggregrationStoreGateway
 {

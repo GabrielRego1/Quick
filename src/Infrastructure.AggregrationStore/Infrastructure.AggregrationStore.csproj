@@ -1,7 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-    <PropertyGroup>
-      <RootNamespace>Infrastructure.SqlServer</RootNamespace>
-    </PropertyGroup>
     <ItemGroup>
         <!--EfCore-->
         <PackageReference Include="Microsoft.EntityFrameworkCore"/>

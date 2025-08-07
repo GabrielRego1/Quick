@@ -1,4 +1,4 @@
-﻿namespace Infrastructure.SqlServer.Options;
+﻿namespace Infrastructure.AggregrationStore.Options;
 
 public class EventStoreOptions
 {

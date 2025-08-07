@@ -1,7 +1,7 @@
 ﻿using Domain.Abstractions;
 using Domain.Aggregates;
 
-namespace Infrastructure.SqlServer.Models;
+namespace Infrastructure.AggregrationStore.Models;
 
 public record Event(
     long Id,

@@ -1,13 +1,13 @@
 ﻿using Application.Extensions;
-using Infrastructure.SqlServer.Abstractions;
-using Infrastructure.SqlServer.Contexts;
-using Infrastructure.SqlServer.Options;
-using Infrastructure.SqlServer.Repositories;
+using Infrastructure.AggregrationStore.Abstractions;
+using Infrastructure.AggregrationStore.Contexts;
+using Infrastructure.AggregrationStore.Options;
+using Infrastructure.AggregrationStore.Repositories;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;   
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Infrastructure.SqlServer;
+namespace Infrastructure.AggregrationStore;
 
 public static class DependencyInjection
 {

@@ -1,7 +1,7 @@
-﻿using Infrastructure.SqlServer.Models;
+﻿using Infrastructure.AggregrationStore.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure.SqlServer.Contexts;
+namespace Infrastructure.AggregrationStore.Contexts;
 
 public class EventStoreDbContext(DbContextOptions<EventStoreDbContext> options) : DbContext(options)
 {

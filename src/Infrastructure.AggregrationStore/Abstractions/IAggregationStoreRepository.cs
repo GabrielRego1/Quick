@@ -1,6 +1,6 @@
-﻿using Infrastructure.SqlServer.Models;
+﻿using Infrastructure.AggregrationStore.Models;
 
-namespace Infrastructure.SqlServer.Abstractions;
+namespace Infrastructure.AggregrationStore.Abstractions;
 
 public interface IAggregationStoreRepository
 {

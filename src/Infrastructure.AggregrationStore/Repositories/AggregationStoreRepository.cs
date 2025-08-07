@@ -1,9 +1,9 @@
-﻿using Infrastructure.SqlServer.Abstractions;
-using Infrastructure.SqlServer.Contexts;
-using Infrastructure.SqlServer.Models;
+﻿using Infrastructure.AggregrationStore.Abstractions;
+using Infrastructure.AggregrationStore.Contexts;
+using Infrastructure.AggregrationStore.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure.SqlServer.Repositories;
+namespace Infrastructure.AggregrationStore.Repositories;
 
 public class AggregationStoreRepository(EventStoreDbContext dbContext) : IAggregationStoreRepository
 {

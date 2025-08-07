@@ -1,8 +1,8 @@
-﻿using Infrastructure.SqlServer.Models;
+﻿using Infrastructure.AggregrationStore.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Infrastructure.SqlServer.Configurations;
+namespace Infrastructure.AggregrationStore.Configurations;
 
 public class StoreEventConfiguration : IEntityTypeConfiguration<Event>
 {
