@@ -1,6 +1,7 @@
 using Application;
 using Infrastructure.AggregrationStore;
 using Infrastructure.Messaging;
+using Serilog;
 using WebApi.Endpoints;
 using WebApi.Extensions;
 
@@ -18,4 +19,17 @@ app.MapApplicationEndpoints()
     .UseScalar()
     .UseHttpsRedirection();
 
-await app.RunAsync();
+try
+{
+    await app.RunAsync();
+}
+catch (Exception e)
+{
+    Log.Fatal("An unhandled exception occurred: {Exception}", e);
+    await app.StopAsync();
+}
+finally
+{
+    await Log.CloseAndFlushAsync();
+    await app.DisposeAsync();
+}
