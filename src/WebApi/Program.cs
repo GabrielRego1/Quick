@@ -11,7 +11,7 @@ builder.ConfigureSerilog();
 builder.Services.AddOpenApi()
     .AddApplication()
     .AddMessageBus()
-    .AddSqlServer(builder.Configuration);
+    .AddAggregrationStore();
 
 var app = builder.Build();
 app.MapApplicationEndpoints()
