@@ -6,7 +6,6 @@ using Infrastructure.AggregrationStore.Gateways;
 using Infrastructure.AggregrationStore.Options;
 using Infrastructure.AggregrationStore.Repositories;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Infrastructure.AggregrationStore;

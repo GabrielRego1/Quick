@@ -18,7 +18,6 @@ var app = builder.Build();
 app.MapApplicationEndpoints()
     .UseScalar()
     .UseHttpsRedirection();
-
 try
 {
     await app.RunAsync();

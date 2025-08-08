@@ -12,7 +12,8 @@ namespace Application.UseCases.Trades;
 public class CreateTradeUseCase(
     ILogger<CreateTradeUseCase> logger,
     SettlementOptions settlementOptions,
-    Validator<CreateTradeCommand> validator) : ICreateTradeUseCase
+    Validator<CreateTradeCommand> validator
+) : ICreateTradeUseCase
 {
     public async Task ExecuteAsync(CreateTradeCommand command, CancellationToken cancellationToken)
     {
