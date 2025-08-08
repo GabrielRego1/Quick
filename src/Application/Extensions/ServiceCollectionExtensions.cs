@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 
 namespace Application.Extensions;
 
@@ -10,5 +11,6 @@ public static class ServiceCollectionExtensions
             .BindConfiguration(configureOptions)
             .ValidateDataAnnotations()
             .ValidateOnStart()
-            .Services;
+            .Services
+            .AddTransient<T>(sp => sp.GetRequiredService<IOptionsMonitor<T>>().CurrentValue);
 }
