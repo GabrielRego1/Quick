@@ -1,9 +1,8 @@
 ﻿using System.Reflection;
-using Application.Abstractions.Messaging;
-using Application.Abstractions.Messaging.Publishers;
+using Application.Abstractions.Gateways;
 using Application.Extensions;
+using Infrastructure.Messaging.Gateways;
 using Infrastructure.Messaging.Options;
-using Infrastructure.Messaging.Publishers;
 using MassTransit;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -28,7 +27,5 @@ public static class DependencyInjection
 
 
     private static IServiceCollection AddPublishers(this IServiceCollection services)
-        => services.AddTransient<IMessageBusProducer, MessageBusProducer>()
-            .AddTransient<IPaymentPublisher, PaymentPublisher>()
-            .AddTransient<ITradePublisher, TradePublisher>();
+        => services.AddTransient<IMessageBusGateway, MessageBusGateway>();
 }

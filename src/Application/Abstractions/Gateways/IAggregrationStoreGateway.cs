@@ -1,7 +1,7 @@
 ﻿using Domain.Abstractions;
 using Domain.Aggregates;
 
-namespace Application.Gateways;
+namespace Application.Abstractions.Gateways;
 
 public interface IAggregrationStoreGateway
 {

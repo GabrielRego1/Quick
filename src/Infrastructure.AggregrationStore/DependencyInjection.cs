@@ -1,5 +1,5 @@
-﻿using Application.Extensions;
-using Application.Gateways;
+﻿using Application.Abstractions.Gateways;
+using Application.Extensions;
 using Infrastructure.AggregrationStore.Abstractions;
 using Infrastructure.AggregrationStore.Contexts;
 using Infrastructure.AggregrationStore.Gateways;

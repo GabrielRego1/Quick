@@ -9,7 +9,7 @@ public abstract class AggregateRoot<TId> : IAggregateRoot<TId>
     public TId Id { get; private set; }
     public int Version { get; private set; }
     private readonly List<(int version, IEvent @event)> _uncommittedEvents = [];
-    public IEnumerable<(int version, IEvent @event)> uncommittedEvents => _uncommittedEvents;
+    public IEnumerable<(int version, IEvent @event)> UncommittedEvents => _uncommittedEvents;
 
     public void SetId(TId id) => Id = id;
 

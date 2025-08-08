@@ -1,4 +1,4 @@
-﻿using Application.Gateways;
+﻿using Application.Abstractions.Gateways;
 using Domain.Abstractions;
 using Domain.Aggregates;
 using Infrastructure.AggregrationStore.Abstractions;
@@ -15,7 +15,7 @@ public class AggregrationStoreGateway(IAggregationStoreRepository repository) : 
 
     public Task AppendAsync(IAggregateId id, IAggregateRoot aggregate, CancellationToken cancellationToken)
     {
-        var events = aggregate.uncommittedEvents.Select(x => Event.Create(x.version, id, aggregate, x.@event, DateTime.UtcNow));
+        var events = aggregate.UncommittedEvents.Select(x => Event.Create(x.version, id, aggregate, x.@event, DateTime.UtcNow));
         return repository.AppendEvents(events, cancellationToken);
     }
 }

@@ -2,6 +2,7 @@
 using Application.Abstractions.Services;
 using Application.Extensions;
 using Application.Options;
+using Application.Services;
 using Application.Services.Http;
 using Application.UseCases.Abstractions;
 using Application.UseCases.Payments.Interactors;
@@ -23,7 +24,8 @@ public static class DependencyInjection
             .AddHttpServices()
             .AddOptions()
             .AddAdapters()
-            .AddValidators();
+            .AddValidators()
+            .AddServices();
 
     private static IServiceCollection AddUseCases(this IServiceCollection services)
         => services.AddScoped<ICreateTradeUseCase, CreateTradeUseCase>();
@@ -61,4 +63,7 @@ public static class DependencyInjection
     private static IServiceCollection AddValidators(this IServiceCollection services)
         => services.AddScoped(typeof(Validator<>))
             .AddValidatorsFromAssemblyContaining<CreateTradeCommandValidator>();
+
+    private static IServiceCollection AddServices(this IServiceCollection services)
+        => services.AddScoped<IAggregrationService, AggregrationService>();
 }
