@@ -2,7 +2,6 @@
 using Application.Options;
 using Application.UseCases.Abstractions;
 using Application.Validations;
-using Application.Validations.Commands;
 using Domain.Entities;
 using Domain.ValueObjects;
 using Microsoft.Extensions.Logging;
@@ -19,7 +18,7 @@ public class CreateTradeUseCase(
     {
         logger.LogInformation("Executing {UseCase} with command: {Command}", nameof(CreateTradeUseCase), command);
 
-        if (!validator.Validate(command, new CreateTradeCommandValidator()))
+        if (!validator.Validate(command))
         {
             logger.LogWarning("Invalid trade command: {Command}", command);
             throw new ArgumentException("Invalid trade command");
