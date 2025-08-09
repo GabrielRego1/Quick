@@ -1,10 +1,10 @@
 ﻿using Application.Abstractions.Gateways;
 using Domain.Abstractions;
 using Domain.Aggregates;
-using Infrastructure.AggregrationStore.Abstractions;
-using Infrastructure.AggregrationStore.Models;
+using Infrastructure.EventStore.Abstractions;
+using Infrastructure.EventStore.Models;
 
-namespace Infrastructure.AggregrationStore.Gateways;
+namespace Infrastructure.EventStore.Gateways;
 
 public class AggregrationStoreGateway(IAggregationStoreRepository repository) : IAggregrationStoreGateway
 {

@@ -1,6 +1,6 @@
-﻿using Infrastructure.AggregrationStore.Models;
+﻿using Infrastructure.EventStore.Models;
 
-namespace Infrastructure.AggregrationStore.Abstractions;
+namespace Infrastructure.EventStore.Abstractions;
 
 public interface IAggregationStoreRepository
 {

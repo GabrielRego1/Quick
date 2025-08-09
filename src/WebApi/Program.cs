@@ -1,5 +1,5 @@
 using Application;
-using Infrastructure.AggregrationStore;
+using Infrastructure.EventStore;
 using Infrastructure.Messaging;
 using Serilog;
 using WebApi.Endpoints;

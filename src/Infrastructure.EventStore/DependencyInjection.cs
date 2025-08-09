@@ -1,14 +1,14 @@
 ﻿using Application.Abstractions.Gateways;
 using Application.Extensions;
-using Infrastructure.AggregrationStore.Abstractions;
-using Infrastructure.AggregrationStore.Contexts;
-using Infrastructure.AggregrationStore.Gateways;
-using Infrastructure.AggregrationStore.Options;
-using Infrastructure.AggregrationStore.Repositories;
+using Infrastructure.EventStore.Abstractions;
+using Infrastructure.EventStore.Contexts;
+using Infrastructure.EventStore.Gateways;
+using Infrastructure.EventStore.Options;
+using Infrastructure.EventStore.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Infrastructure.AggregrationStore;
+namespace Infrastructure.EventStore;
 
 public static class DependencyInjection
 {

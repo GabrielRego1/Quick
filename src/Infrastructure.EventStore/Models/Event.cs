@@ -1,8 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using Domain.Abstractions;
+﻿using Domain.Abstractions;
 using Domain.Aggregates;
 
-namespace Infrastructure.AggregrationStore.Models;
+namespace Infrastructure.EventStore.Models;
 
 public record Event
 {

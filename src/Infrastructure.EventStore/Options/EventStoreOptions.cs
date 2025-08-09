@@ -1,4 +1,4 @@
-﻿namespace Infrastructure.AggregrationStore.Options;
+﻿namespace Infrastructure.EventStore.Options;
 
 public class EventStoreOptions
 {
