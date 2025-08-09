@@ -13,6 +13,8 @@ public class AggregrationService(
         where TId : IAggregateId, new()
     {
         var aggregate = new TAggregate();
+        aggregate.SetId(id);
+        
         var eventStream = await eventStoreGateway.LoadEventStreamAsync(id, cancellationToken);
         aggregate.Load(eventStream);
         return aggregate;
