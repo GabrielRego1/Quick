@@ -6,7 +6,7 @@ using Infrastructure.EventStore.Models;
 
 namespace Infrastructure.EventStore.Gateways;
 
-public class AggregrationStoreGateway(IAggregationStoreRepository repository) : IAggregrationStoreGateway
+public class EventStoreGateway(IEventStoreRepository repository) : IEventStoreGateway
 {
     public async Task<ICollection<IEvent>> LoadEventStreamAsync(IAggregateId aggregateId,
         CancellationToken cancellationToken)

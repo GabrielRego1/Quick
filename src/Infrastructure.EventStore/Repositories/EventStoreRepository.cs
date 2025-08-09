@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.EventStore.Repositories;
 
-public class AggregationStoreRepository(EventStoreDbContext dbContext) : IAggregationStoreRepository
+public class EventStoreRepository(EventStoreDbContext dbContext) : IEventStoreRepository
 {
     public async Task<ICollection<Event>> GetEventsAsync(string aggregateId, CancellationToken cancellationToken)
         => await dbContext.Events

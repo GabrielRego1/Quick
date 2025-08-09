@@ -26,8 +26,8 @@ public static class DependencyInjection
             });
 
     private static IServiceCollection AddRepositories(this IServiceCollection services)
-        => services.AddScoped<IAggregationStoreRepository, AggregationStoreRepository>();
+        => services.AddScoped<IEventStoreRepository, EventStoreRepository>();
 
     private static IServiceCollection AddGateways(this IServiceCollection services)
-        => services.AddScoped<IAggregrationStoreGateway, AggregrationStoreGateway>();
+        => services.AddScoped<IEventStoreGateway, EventStoreGateway>();
 }

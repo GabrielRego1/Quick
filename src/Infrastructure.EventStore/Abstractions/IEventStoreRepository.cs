@@ -2,7 +2,7 @@
 
 namespace Infrastructure.EventStore.Abstractions;
 
-public interface IAggregationStoreRepository
+public interface IEventStoreRepository
 {
     Task<ICollection<Event>> GetEventsAsync(string aggregateId, CancellationToken cancellationToken);
     Task AppendEvents(IEnumerable<Event> events, CancellationToken cancellationToken);
