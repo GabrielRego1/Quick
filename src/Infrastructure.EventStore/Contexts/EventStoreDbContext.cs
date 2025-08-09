@@ -10,5 +10,6 @@ public class EventStoreDbContext(DbContextOptions<EventStoreDbContext> options) 
         => modelBuilder.ApplyConfigurationsFromAssembly(typeof(EventStoreDbContext).Assembly);
 
     protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
-        => configurationBuilder.Properties<string>().AreUnicode(false);
+        => configurationBuilder.Properties<string>()
+            .AreUnicode(false);
 }

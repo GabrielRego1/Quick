@@ -33,8 +33,9 @@ public class StoreEventConfiguration : IEntityTypeConfiguration<Event>
 
         builder.Property(e => e.Data)
             .IsRequired()
-            .HasConversion<EventConverter>();
-            
+            .HasConversion<EventConverter>()
+            .IsUnicode(false);
+
         builder.Property(e => e.Timestamp)
             .IsRequired();
 
