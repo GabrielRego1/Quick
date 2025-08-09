@@ -32,9 +32,10 @@ public class Trade : AggregateRoot<TradeAggregateId>
             TradeStatus.Accepted
         );
         var trade = new Trade();
-        trade.Apply(@event);
+        Raise(@event);// ToDo: Corrigir static vs abstract ...
         return trade;
     }
+
 
     public Ticker Ticker { get; private set; }
     public Account Account { get; private set; }

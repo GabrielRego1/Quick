@@ -1,7 +1,9 @@
-﻿using Application.Messages.Commands;
+﻿using Application.Abstractions.Services;
+using Application.Messages.Commands;
 using Application.Options;
 using Application.UseCases.Abstractions;
 using Application.Validations;
+using Domain.Aggregates;
 using Domain.Entities;
 using Domain.ValueObjects;
 using Microsoft.Extensions.Logging;
@@ -11,7 +13,8 @@ namespace Application.UseCases.Trades;
 public class CreateTradeUseCase(
     ILogger<CreateTradeUseCase> logger,
     SettlementOptions settlementOptions,
-    Validator<CreateTradeCommand> validator
+    Validator<CreateTradeCommand> validator,
+    IAggregrationService eventStoreGateway
 ) : ICreateTradeUseCase
 {
     public async Task ExecuteAsync(CreateTradeCommand command, CancellationToken cancellationToken)
@@ -31,7 +34,6 @@ public class CreateTradeUseCase(
             throw new ArgumentException("Invalid trade command");
         }
 
-
         var trade = Trade.Iniciate(new Ticker(command.Ticker),
             account: new Account(command.Account),
             settlementAccount: new Account(command.SettlementAccount),
@@ -39,6 +41,9 @@ public class CreateTradeUseCase(
             new Quantity(command.Quantity),
             new Price(command.Price),
             command.TradeDate);
+
+        var id = TradeAggregateId.Create(trade);
+        await eventStoreGateway.AppendEventAsync(id, trade, cancellationToken);
     }
 
     private bool ShouldIniciateTrade(CreateTradeCommand command)
