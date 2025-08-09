@@ -18,7 +18,7 @@ builder.Services.AddOpenApi()
 var app = builder.Build();
 app.MapApplicationEndpoints()
     .UseScalar()
-    .MapHealthChecks()
+    .UseHealthChecks()
     .UseHttpsRedirection();
 try
 {

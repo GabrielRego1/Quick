@@ -11,7 +11,7 @@ public static class HealthCheckExtensions
         => services.AddHealthChecks()
             .AddDbContextCheck<EventStoreDbContext>();
 
-    public static IApplicationBuilder MapHealthChecks(this WebApplication app)
+    public static IApplicationBuilder UseHealthChecks(this WebApplication app)
         => app.UseHealthChecks("/health", new HealthCheckOptions
         {
             Predicate = _ => true,
