@@ -1,32 +1,60 @@
 services:
+  
   rabbitmq:
     image: rabbitmq:4-management
-    ports:
-      - "15672:15672"
-      - "5672:5672"
+    container_name: rabbitmq
     environment:
       RABBITMQ_DEFAULT_USER: guest
       RABBITMQ_DEFAULT_PASS: guest
-    volumes:
-      - './docker/rabbitmq:/etc/rabbitmq/entrypoint'
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 2500M
+    healthcheck:
+      test: rabbitmq-diagnostics -q ping && rabbitmq-diagnostics check_running && rabbitmq-diagnostics check_virtual_hosts
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - NET_RAW
     networks:
       - internal
 
   mssql:
     image: mcr.microsoft.com/mssql/server:2022-latest
-    ports:
-      - "1433:1433"
+    container_name: mssql
     environment:
       ACCEPT_EULA: "Y"
-      SA_PASSWORD: "PasswordLocalhost"
-    volumes:
-      - mssql-data:/var/opt/mssql
+      SA_PASSWORD: "PasswordLocalhost@123"
+    ports:
+      - "1433:1433"
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 2500M
+      restart_policy:
+        condition: on-failure
+    healthcheck:
+      test: /opt/mssql-tools/bin/sqlcmd -U sa -P PasswordLocalhost@123 -Q "SELECT 1" || exit 1
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - NET_RAW
     networks:
       - internal
 
 networks:
   internal:
     driver: bridge
-
-volumes:
-  mssql-data: {}
