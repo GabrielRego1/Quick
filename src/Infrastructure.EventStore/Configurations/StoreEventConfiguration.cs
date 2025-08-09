@@ -1,4 +1,5 @@
-﻿using Infrastructure.EventStore.Models;
+﻿using Infrastructure.EventStore.Converters;
+using Infrastructure.EventStore.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -30,6 +31,10 @@ public class StoreEventConfiguration : IEntityTypeConfiguration<Event>
             .IsRequired()
             .HasMaxLength(Event.MessageNameMaxLength);
 
+        builder.Property(e => e.Data)
+            .IsRequired()
+            .HasConversion<EventConverter>();
+            
         builder.Property(e => e.Timestamp)
             .IsRequired();
 
