@@ -8,10 +8,6 @@ namespace Domain.Entities;
 
 public class Trade : AggregateRoot<TradeAggregateId>
 {
-    private Trade()
-    {
-    }
-
     public static Trade Iniciate(Ticker ticker,
         Account account,
         Account settlementAccount,
@@ -20,7 +16,24 @@ public class Trade : AggregateRoot<TradeAggregateId>
         Price price,
         DateOnly tradeDate)
     {
-        var @event = new TradeAccepted
+        return new Trade(ticker,
+            account: account,
+            settlementAccount: settlementAccount,
+            side,
+            quantity,
+            price,
+            tradeDate);
+    }
+
+    private Trade(Ticker ticker,
+        Account account,
+        Account settlementAccount,
+        Side side,
+        Quantity quantity,
+        Price price,
+        DateOnly tradeDate)
+    {
+        var @event = new TradeInitiated
         (
             ticker,
             account,
@@ -29,11 +42,9 @@ public class Trade : AggregateRoot<TradeAggregateId>
             quantity,
             price,
             tradeDate,
-            TradeStatus.Accepted
+            TradeStatus.Initiated
         );
-        var trade = new Trade();
-        Raise(@event);// ToDo: Corrigir static vs abstract ...
-        return trade;
+        Raise(@event);
     }
 
 
@@ -54,16 +65,16 @@ public class Trade : AggregateRoot<TradeAggregateId>
     protected override void Apply(IEvent @event)
         => Apply((dynamic)@event);
 
-    private void Apply(TradeAccepted tradeAccepted)
+    private void Apply(TradeInitiated tradeInitiated)
     {
-        Ticker = tradeAccepted.Ticker;
-        Account = tradeAccepted.Account;
-        SettlementAccount = tradeAccepted.SettlementAccount;
-        Side = tradeAccepted.Side;
-        Quantity = tradeAccepted.Quantity;
-        Price = tradeAccepted.Price;
-        TradeDate = tradeAccepted.TradeDate;
-        TradeStatus = tradeAccepted.TradeStatus;
+        Ticker = tradeInitiated.Ticker;
+        Account = tradeInitiated.Account;
+        SettlementAccount = tradeInitiated.SettlementAccount;
+        Side = tradeInitiated.Side;
+        Quantity = tradeInitiated.Quantity;
+        Price = tradeInitiated.Price;
+        TradeDate = tradeInitiated.TradeDate;
+        TradeStatus = tradeInitiated.TradeStatus;
     }
 
     private void Apply(TradeSentToCreate tradeSentToCreate)

@@ -4,7 +4,7 @@ using Domain.ValueObjects;
 
 namespace Domain.Events;
 
-public record TradeAccepted(
+public record TradeInitiated(
     Ticker Ticker,
     Account Account,
     Account SettlementAccount,

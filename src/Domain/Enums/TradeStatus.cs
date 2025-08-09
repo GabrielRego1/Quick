@@ -1,7 +1,7 @@
 ﻿namespace Domain.Enums;
 public enum TradeStatus
 {
-    Accepted,
+    Initiated,
     NotAccepted,
     SentToCreate,
     Created,
