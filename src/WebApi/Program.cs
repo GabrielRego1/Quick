@@ -12,11 +12,13 @@ builder.ConfigureSerilog();
 builder.Services.AddOpenApi()
     .AddApplication()
     .AddMessageBus()
-    .AddAggregrationStore();
+    .AddAggregrationStore()
+    .AddHealthCheck();
 
 var app = builder.Build();
 app.MapApplicationEndpoints()
     .UseScalar()
+    .MapHealthChecks()
     .UseHttpsRedirection();
 try
 {

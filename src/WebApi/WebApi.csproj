@@ -14,6 +14,9 @@
         <PackageReference Include="Serilog.Enrichers.Thread"/>
         <PackageReference Include="Serilog.Expressions"/>
         <PackageReference Include="Serilog.Formatting.Elasticsearch"/>
+
+        <!-- HealthCheck-->
+        <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore"/>
     </ItemGroup>
 
     <ItemGroup>

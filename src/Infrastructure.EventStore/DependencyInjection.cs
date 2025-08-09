@@ -12,7 +12,7 @@ namespace Infrastructure.EventStore;
 
 public static class DependencyInjection
 {
-    public static void AddAggregrationStore(this IServiceCollection services)
+    public static IServiceCollection AddAggregrationStore(this IServiceCollection services)
         => services.AddDatabase()
             .AddRepositories()
             .AddGateways();
