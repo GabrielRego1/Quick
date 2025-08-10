@@ -1,14 +1,24 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
+using Domain.Serialization.Converters;
 
 namespace Domain.Serialization;
 
 public static class SerializationDefinitions
 {
-    public static JsonSerializerOptions Default { get; } = new()
+    public static JsonSerializerOptions Default
     {
-        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-        WriteIndented = true,
-        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
-    };
+        get
+        {
+            var options = new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                PropertyNameCaseInsensitive = true,
+                WriteIndented = true,
+                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+            };
+            options.Converters.Add(new PolymorphicIEventConverter());
+            return options;
+        }
+    }
 }
