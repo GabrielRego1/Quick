@@ -1,4 +1,6 @@
-﻿using Infrastructure.EventStore.Abstractions;
+﻿using System.Text.Json;
+using Domain.Serialization;
+using Infrastructure.EventStore.Abstractions;
 using Infrastructure.EventStore.Contexts;
 using Infrastructure.EventStore.Models;
 using Microsoft.EntityFrameworkCore;
@@ -15,6 +17,10 @@ public class EventStoreRepository(EventStoreDbContext dbContext) : IEventStoreRe
 
     public Task AppendEvents(IEnumerable<Event> events, CancellationToken cancellationToken)
     {
+
+        
+        //todo: fixit
+        var dataJson = JsonSerializer.Serialize(events.FirstOrDefault().Data );
         dbContext.Events.AddRangeAsync(events, cancellationToken);
         dbContext.SaveChangesAsync(cancellationToken);
         return Task.CompletedTask;
