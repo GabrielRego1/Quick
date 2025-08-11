@@ -20,7 +20,7 @@ public abstract class AggregateRoot<TId> : IAggregateRoot<TId>
     {
         Apply(@event);
         Version += 1;
-        _uncommittedEvents.Add((Version += 1, @event));
+        _uncommittedEvents.Add((Version, @event));
     }
 
     protected abstract void Apply(IEvent @event);

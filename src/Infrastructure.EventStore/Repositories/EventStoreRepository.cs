@@ -17,10 +17,6 @@ public class EventStoreRepository(EventStoreDbContext dbContext) : IEventStoreRe
 
     public Task AppendEvents(IEnumerable<Event> events, CancellationToken cancellationToken)
     {
-
-        
-        //todo: fixit
-        var dataJson = JsonSerializer.Serialize(events.FirstOrDefault().Data );
         dbContext.Events.AddRangeAsync(events, cancellationToken);
         dbContext.SaveChangesAsync(cancellationToken);
         return Task.CompletedTask;

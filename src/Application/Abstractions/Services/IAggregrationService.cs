@@ -9,5 +9,5 @@ public interface IAggregrationService
         where TId : IAggregateId, new();
 
 
-    Task AppendEventAsync(IAggregateId id, IAggregateRoot aggregate, CancellationToken cancellationToken);
+    Task AppendAndPublishEventAsync (IAggregateId id, IAggregateRoot aggregate, CancellationToken cancellationToken);
 }

@@ -43,7 +43,7 @@ public class CreateTradeUseCase(
             command.TradeDate);
 
         var id = TradeAggregateId.Create(trade);
-        await eventStoreGateway.AppendEventAsync(id, trade, cancellationToken);
+        await eventStoreGateway.AppendAndPublishEventAsync(id, trade, cancellationToken);
     }
 
     private bool ShouldIniciateTrade(CreateTradeCommand command)

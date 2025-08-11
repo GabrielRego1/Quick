@@ -20,8 +20,9 @@ public class AggregrationService(
         return aggregate;
     }
 
-    public async Task AppendEventAsync(IAggregateId id, IAggregateRoot aggregate, CancellationToken cancellationToken)
+    public async Task AppendAndPublishEventAsync(IAggregateId id, IAggregateRoot aggregate, CancellationToken cancellationToken)
     {
+        //Todo: add outbox pattern
         await eventStoreGateway.AppendAsync(id, aggregate, cancellationToken);
         await messageBusGateway.PublishAsync(aggregate, cancellationToken);
     }
