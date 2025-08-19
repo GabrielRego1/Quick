@@ -8,24 +8,11 @@ namespace Domain.Entities;
 
 public class Trade : AggregateRoot<TradeAggregateId>
 {
-    public static Trade Iniciate(Ticker ticker,
-        Account account,
-        Account settlementAccount,
-        Side side,
-        Quantity quantity,
-        Price price,
-        DateOnly tradeDate)
+    private Trade()
     {
-        return new Trade(ticker,
-            account: account,
-            settlementAccount: settlementAccount,
-            side,
-            quantity,
-            price,
-            tradeDate);
     }
 
-    private Trade(Ticker ticker,
+    public static Trade Initiate(Ticker ticker,
         Account account,
         Account settlementAccount,
         Side side,
@@ -44,7 +31,9 @@ public class Trade : AggregateRoot<TradeAggregateId>
             tradeDate,
             TradeStatus.Initiated
         );
-        Raise(@event);
+        var trade = new Trade();
+        trade.Raise(@event);
+        return trade;
     }
 
 

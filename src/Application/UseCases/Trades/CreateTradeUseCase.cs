@@ -34,7 +34,7 @@ public class CreateTradeUseCase(
             throw new ArgumentException("Invalid trade command");
         }
 
-        var trade = Trade.Iniciate(new Ticker(command.Ticker),
+        var trade = Trade.Initiate(new Ticker(command.Ticker),
             account: new Account(command.Account),
             settlementAccount: new Account(command.SettlementAccount),
             command.Side,
