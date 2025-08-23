@@ -1,12 +1,12 @@
 ﻿using Application.Abstractions.Interactors;
-using Application.Messages.Events;
+using Domain.Events;
 
 namespace Application.UseCases.Trades.Interactors;
 
-public interface ITradeCreatedInteractor : IInteractor<TradeCreatedEvent>;
+public interface ITradeInitiatedInteractor : IInteractor<TradeInitiated>;
 
-public class TradeCreatedInteractor : ITradeCreatedInteractor
+public class TradeInitiatedInteractor : ITradeInitiatedInteractor
 {
-    public Task InteractAsync(TradeCreatedEvent command, CancellationToken cancellationToken)
+    public Task InteractAsync(TradeInitiated command, CancellationToken cancellationToken)
         => throw new NotImplementedException();
 }

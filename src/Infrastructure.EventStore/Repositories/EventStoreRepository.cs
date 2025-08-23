@@ -1,6 +1,4 @@
-﻿using System.Text.Json;
-using Domain.Serialization;
-using Infrastructure.EventStore.Abstractions;
+﻿using Infrastructure.EventStore.Abstractions;
 using Infrastructure.EventStore.Contexts;
 using Infrastructure.EventStore.Models;
 using Microsoft.EntityFrameworkCore;

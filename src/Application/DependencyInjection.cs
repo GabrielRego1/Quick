@@ -36,7 +36,7 @@ public static class DependencyInjection
             .Services; //ToDo: melhorar a resiliência em chamadas HTTP
 
     private static IServiceCollection AddInteractors(this IServiceCollection services)
-        => services.AddScoped<ITradeCreatedInteractor, TradeCreatedInteractor>()
+        => services.AddScoped<ITradeInitiatedInteractor, TradeInitiatedInteractor>()
             .AddScoped<IPaymentCreatedInteractor, PaymentCreatedInteractor>();
 
     private static IServiceCollection AddAdapters(this IServiceCollection services)
