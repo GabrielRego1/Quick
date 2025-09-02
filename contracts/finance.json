@@ -7,32 +7,32 @@
 // Alterar a coluna "Valor Liquido" para "Valor Pago"
 // Na tabela de "Detalhamento por Liquidação", adicionar o filtro por status, e deixar o status "Pago" como padrão, adicionar paginação e ordenação por data de criação (mais recente primeiro)
 {
-    "total_settlement": 9152999,
-    "total_financial_volume_paid": 9152649.00,
-    "total_taxes_collected": 3500.00,
-    "summarized_taxes": [
-        {
-            "tax_name": "Taxa de Corretagem",
-            "total_collected": 1500.00
-        },
-        {
-            "tax_name": "Taxa de Liquidação",
-            "total_collected": 1200.00
-        },
-        {
-            "tax_name": "Emolumentos",
-            "total_collected": 800.00
-        }
-    ],
-    "settlements": [
-        {
-            "aggregate_id": "LIQ-2024-001",
-            "created_at": "2025-09-01",
-            "ticker": "PETR4",
-            "status": "paid",
-            "settlement_value": 241546.15,
-            "taxes": 120.50,
-            "paid_value": 241425.65
-        }
-    ]
+  "totalSettlements": 9152999,
+  "totalFinancialVolumePaid": 9152649.00,
+  "totalTaxesCollected": 3500.00,
+  "summarizedTaxes": [
+    {
+      "taxName": "Brokerage Fee",
+      "totalCollected": 1500.00
+    },
+    {
+      "taxName": "Settlement Fee",
+      "totalCollected": 1200.00
+    },
+    {
+      "taxName": "Exchange Fee",
+      "totalCollected": 800.00
+    }
+  ],
+  "settlements": [
+    {
+      "settlementId": "LIQ-2024-001",
+      "settlementDate": "2025-09-01",
+      "assetTicker": "PETR4",
+      "settlementStatus": "paid",
+      "settlementValue": 241546.15,
+      "totalTaxes": 120.50,
+      "paidValue": 241425.65
+    }
+  ]
 }

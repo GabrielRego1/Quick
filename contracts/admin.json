@@ -1,26 +1,26 @@
 //ToDo: adicioanr botaão para possibilitar edição os valores das taxas
 // Renomear o campo "Tickers proibidos" para "Tickers Não Aceitos", incluindo na legenda do titulo da tela "Administração"
 {
-    "max_value_per_settlement": 500000,
-    "settlement_account": "123456-7",
-    "max_settlement": 6000000,
-    "not_accepted_tickers": [
-        "OIBR3",
-        "GOLL4",
-        "JHSF3"
-    ],
-    "taxes": [
-        {
-            "tax_name": "Taxa de Corretagem",
-            "value": 1500.00
-        },
-        {
-            "tax_name": "Taxa de Liquidação",
-            "value": 1200.00
-        },
-        {
-            "tax_name": "Emolumentos",
-            "value": 800.00
-        }
-    ]
+  "maxValuePerSettlement": 500000,
+  "settlementAccount": "123456-7",
+  "maxSettlementValue": 6000000,
+  "notAcceptedTickers": [
+    "OIBR3",
+    "GOLL4",
+    "JHSF3"
+  ],
+  "taxes": [
+    {
+      "taxName": "Brokerage Fee",
+      "taxAmount": 1500.00
+    },
+    {
+      "taxName": "Settlement Fee",
+      "taxAmount": 1200.00
+    },
+    {
+      "taxName": "Exchange Fee",
+      "taxAmount": 800.00
+    }
+  ]
 }

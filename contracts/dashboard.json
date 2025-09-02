@@ -1,0 +1,55 @@
+//ToDos
+// Ajustar cores
+//  Alterar grafico para treemap
+// Alterar titulo da sessão "Análise de Liquidações Bloqueadas" para "Análise de Liquidações Não Aceitas"
+// Incluir data de criação na tabela de liquidações não aceitas
+
+
+{
+  "totalSettlements": 50,
+  "totalFinancialVolume": 9152649,
+  "statusDefinitions": {
+    "initiatedCount": 10,
+    "sentToCreateCount": 6,
+    "createdCount": 7,
+    "sentToPayCount": 8,
+    "paidCount": 11,
+    "notAcceptedCount": 5
+  },
+  "distributionByStatus": {
+    "initiated": 20,
+    "sentToCreate": 12,
+    "created": 14,
+    "sentToPay": 16,
+    "paid": 22,
+    "notAccepted": 16
+  },
+  "financialVolumes": [
+    {
+      "assetTicker": "PETR4",
+      "financialVolume": 1234567
+    },
+    {
+      "assetTicker": "VALE3",
+      "financialVolume": 2345678
+    }
+  ],
+  "notAcceptedSettlements": [
+    {
+      "settlementId": "LIQ-2024-051",
+      "assetTicker": "BBSA3",
+      "settlementValue": 1234567,
+      "settlementStatus": "notAccepted",
+      "description": "Not accepted - value above the limit (BRL 500,000.00)",
+      "settlementDate": "2024-05-10T14:30:00Z"
+    },
+    {
+      "settlementId": "LIQ-2024-052",
+      "assetTicker": "OIBR3",
+      "settlementValue": 75000,
+      "settlementStatus": "notAccepted",
+      "description": "Not accepted - ticker in the prohibited list",
+      "settlementDate": "2024-05-10T14:30:00Z"
+    }
+  ]
+}

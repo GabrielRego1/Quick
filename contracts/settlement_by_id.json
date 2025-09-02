@@ -7,47 +7,47 @@
 //Usar a estilização de somatoria da sessão "Como o Volume Financeiro é Calculado" da tela de financeiro
 
 {
-    "aggregate_id": "LIQ-2024-001",
-    "status": "paid",
-    "created_at": "2025-09-01",
-    "asset_information": {
-        "ticker": "SUZB3",
-        "price": 52.55,
-        "quantity": 3544
-    },
-    "financial_details": {
-        "total_value": 186352.20,
-        "total_taxes": 506.00,
-        "paid_value": 185846.20,
-        "payment_date": "2025-09-01",
-        "currency": "BRL",
-        "taxes": [
-            {
-                "tax_name": "Taxa de Corretagem",
-                "tax_value": 195
-            },
-            {
-                "tax_name": "Taxa de Liquidação",
-                "tax_value": 211.00
-            },
-            {
-                "tax_name": "Emolumentos",
-                "tax_value": 100
-            }
-        ]
-    },
-    "historical_events": [
-        {
-            "status": "Initiated",
-            "timestamp": "2025-08-30T10:00:00Z"
-        },
-        {
-            "event": "Sent to Create",
-            "timestamp": "2025-09-01T09:00:00Z"
-        },
-        {
-            "event": "Created",
-            "timestamp": "2025-09-01T15:30:00Z"
-        }
+  "settlementId": "LIQ-2024-001",
+  "settlementStatus": "paid",
+  "settlementDate": "2025-09-01",
+  "assetInformation": {
+    "assetTicker": "SUZB3",
+    "unitPrice": 52.55,
+    "quantity": 3544
+  },
+  "financialDetails": {
+    "totalValue": 186352.20,
+    "totalTaxes": 506.00,
+    "paidValue": 185846.20,
+    "paymentDate": "2025-09-01",
+    "currency": "BRL",
+    "taxes": [
+      {
+        "taxName": "Brokerage Fee",
+        "taxAmount": 195
+      },
+      {
+        "taxName": "Settlement Fee",
+        "taxAmount": 211.00
+      },
+      {
+        "taxName": "Exchange Fee",
+        "taxAmount": 100
+      }
     ]
+  },
+  "historicalEvents": [
+    {
+      "eventStatus": "initiated",
+      "eventDateTime": "2025-08-30T10:00:00Z"
+    },
+    {
+      "eventStatus": "sentToCreate",
+      "eventDateTime": "2025-09-01T09:00:00Z"
+    },
+    {
+      "eventStatus": "created",
+      "eventDateTime": "2025-09-01T15:30:00Z"
+    }
+  ]
 }
