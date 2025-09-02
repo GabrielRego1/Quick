@@ -1,0 +1,38 @@
+//ToDo: Alterar campos para: Total de taxas recebidas, Total de volume financeiro pago,Total bruto de liquidações
+//Remover a sessão "Como o Volume Financeiro é Calculado"
+//Remover a Coluna Qtd. Aplicações e Valor medio da tabela "Resumo das Taxas Aplicadas"
+//Copiar a estilização  da sessão "Como o Volume Financeiro é Calculado" para indicar somatoria de valores
+//Alterar a coluna "Valor Bruto" para "Valor Liquidação"
+//Alterar cor da coluna Taxas para Verde
+// Alterar a coluna "Valor Liquido" para "Valor Pago"
+// Na tabela de "Detalhamento por Liquidação", adicionar o filtro por status, e deixar o status "Pago" como padrão, adicionar paginação e ordenação por data de criação (mais recente primeiro)
+{
+    "total_settlement": 9152999,
+    "total_financial_volume_paid": 9152649.00,
+    "total_taxes_collected": 3500.00,
+    "summarized_taxes": [
+        {
+            "tax_name": "Taxa de Corretagem",
+            "total_collected": 1500.00
+        },
+        {
+            "tax_name": "Taxa de Liquidação",
+            "total_collected": 1200.00
+        },
+        {
+            "tax_name": "Emolumentos",
+            "total_collected": 800.00
+        }
+    ],
+    "settlements": [
+        {
+            "aggregate_id": "LIQ-2024-001",
+            "created_at": "2025-09-01",
+            "ticker": "PETR4",
+            "status": "paid",
+            "settlement_value": 241546.15,
+            "taxes": 120.50,
+            "paid_value": 241425.65
+        }
+    ]
+}

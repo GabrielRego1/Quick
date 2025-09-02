@@ -1,0 +1,20 @@
+//ToDos
+// Remover coluna "Corretora" da listagem de liquidações
+{
+    "settlements": [
+        {
+            "aggregate_id": "LIQ-2024-001",
+            "created_at": "2025-09-01",
+            "ticker": "PETR4",
+            "price": 241546.15,
+            "status": "paid"
+        },
+        {
+            "aggregate_id": "LIQ-2024-002",
+            "created_at": "2025-09-01",
+            "ticker": "BBSA3",
+            "price": 54325.55,
+            "status": "sent_to_pay"
+        }
+    ]
+}
